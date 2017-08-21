@@ -1,0 +1,179 @@
+/*==============================================================
+POYNT STYLES
+==============================================================*/
+*
+  box-sizing: border-box
+
+html
+  overflow scroll
+  overflow-x hidden
+
+::-webkit-scrollbar
+  width 0px  /* remove scrollbar space */
+  background transparent  /* optional: just make scrollbar invisible */
+
+body
+  background-color $grey6
+  font-family $body-font
+  color $grey1
+  font-weight normal
+  line-height 1.25
+  transition 0.2s ease
+
+h1, h2, h3, h4, h5, h6
+  font-weight 600
+  font-family $header-font
+
+h1
+  font-size 48px
+  line-height 1.2
+
+h2
+  font-size 32px
+  line-height 1.25
+
+h3
+  font-size 22px
+  line-height 1.5
+
+h4
+  font-size 18px
+  line-height 1.5
+
+h5
+  font-size 13px
+  line-height 1.5
+
+h6
+  font-size 11px
+  line-height 1.5
+
+p
+  font-size:16px;
+  line-height:1.75;
+  margin-bottom:16px;
+
+
+a
+  cursor pointer
+  display inline-block
+  transition 0.2s ease
+
+  &:hover
+    transform translateY(-1px)
+    filter drop-shadow(2px 4px 8px rgba(40, 40, 40, 0.45))
+
+hr
+  margin-top $grid
+  margin-bottom $grid
+  border-width 0
+  border-top 1px solid #E1E1E1
+
+strong
+  font-weight 500
+
+// common animations
+@keyframes fade-in
+  from
+    opacity 0
+
+  to
+    opacity 1
+
+@keyframes fade-out
+  from
+    opacity 1
+
+  to
+    opacity 0
+
+
+img:focus, button:focus, input:focus
+  outline none
+
+.post-content ul, .blog-post-content ul
+  list-style-type circle
+  padding-left $grid
+  margin-bottom 16px
+
+.post-content ol, .blog-post-content ol
+  list-style-type decimal
+  padding-left $grid
+  margin-bottom 16px
+
+.home-icon
+  background-image url('https://s3-us-west-2.amazonaws.com/lawluk/images/icons/home.svg')
+  background-size contain
+  background-repeat no-repeat
+  height $grid
+  width $grid
+  position fixed
+  top $grid
+  left $grid
+  z-index 9
+
+.loading-wave-container
+  margin-top $grid
+  margin-bottom $grid*3
+  width 100%
+  height 100%
+  display flex
+  justify-content center
+  align-items center
+
+  $wave-size = 12px
+
+  .waves
+    transform-style preserve-3d
+    transform rotate3d(-0.2,0.5,0,12deg)
+
+  [class*="wave-"]
+    position relative
+    float right
+    width $wave-size
+    height $wave-size
+    margin 0 10px
+    transform-style preserve-3d
+
+  for i in (0..11)
+    .wave-{i}
+      display block
+      animation waving 2.4s ease-in-out infinite
+      animation-delay 0.2s*i
+
+  .wave-face
+    position absolute
+    width $wave-size
+    height $wave-size
+    background-image linear-gradient(-240deg, #fedfe5, #d1f9ff)
+    transform-style preserve-3d
+    transform translateZ(0px)
+    &:before
+    &:after
+      position absolute
+      content ''
+      display block
+      transform-origin 50% 50% 50%
+    &:before
+      width 300px
+      height $wave-size
+      background-image linear-gradient(to left, #c2e3ea, #0C94F5, #6E3DF5)
+      transform translate3d(-150px,0,-150px) rotateY(90deg)
+    &:after
+      width $wave-size
+      height 300px
+      background-color yellow
+      background-image linear-gradient(to bottom, #fff, #d1f9ff, #779ade, #c2e3ea)
+      transform translate3d(0,-150px,-150px) rotateX(90deg);
+
+@keyframes waving
+ 0%, 100%
+   transform translateY(0)
+
+ 50%
+   transform translateY(45px)
+
+@media (max-width: 640px)
+  .home-icon
+    top $unit
+    left $unit

@@ -1,0 +1,39 @@
+{{!< default}}
+<a href='/' class='home-icon'></a>
+<main class="content page-exchange" role="main">
+  <section class='exchange-header'>
+    <h1>Buy This, With That</h1>
+    <p>A simple cryptocurrency exchange rate calculator</p>
+  </section>
+  <section class='exchange-body'>
+    <div id='loading-content'>
+      <div class='loading-wave-container'>
+        <div class='waves'>
+          <div class='wave-0'><div class='wave-face'></div></div>
+          <div class='wave-1'><div class='wave-face'></div></div>
+          <div class='wave-2'><div class='wave-face'></div></div>
+          <div class='wave-3'><div class='wave-face'></div></div>
+          <div class='wave-4'><div class='wave-face'></div></div>
+          <div class='wave-5'><div class='wave-face'></div></div>
+          <div class='wave-6'><div class='wave-face'></div></div>
+          <div class='wave-7'><div class='wave-face'></div></div>
+        </div>
+      </div>
+    </div>
+    <div id='loaded-content'>
+      <div class='exchange-input'>
+        <div class='exchange-input-image'></div>
+        <p>I want to buy <select class='exchange-currency-source'></select></p>
+        <p>I want to compare prices across <select class='exchange-currency-types' multiple='multiple'></select></p>
+      </div>
+      <div class='exchange-output'>
+      </div>
+      <div class='exchange-currency'>
+        <select class='exchange-currency-local'></select>
+      </div>
+    </div>
+  </section>
+  <a href='/sellthisforthat'>Sell this, for that</a>
+</main>
+
+<script type="text/javascript" src="{{asset "js/dist/exchange.js"}}"></script>

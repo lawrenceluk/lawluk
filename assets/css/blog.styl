@@ -1,0 +1,134 @@
+.blog
+  &-header
+    padding $grid*3 0
+    text-align center
+
+    > h1
+      position relative
+      &:before,
+      &:after
+        display block
+        content 'Blog'
+        position absolute
+        top 0
+        left 0
+        height 100%
+        width 100%
+        opacity .8
+      &:after
+        color $blue
+        z-index -2
+        animation glitch-small .85s cubic-bezier(.25, .46, .45, .94) both infinite
+      &:before
+        color $purple
+        z-index -1
+        animation glitch-small .85s cubic-bezier(.25, .46, .45, .94) reverse both infinite
+
+  &-post
+    background $grey6
+    display flex
+    flex-wrap wrap
+    padding $grid
+    width 100%
+    position relative
+
+    &:before
+      content ''
+      background linear-gradient(-229deg,#6e3df5 12%,#0c94f5 100%)
+      width 100%
+      height 100%
+      position absolute
+      opacity 0
+      top 0
+      left 20%
+      z-index 0
+      transition 0.4s ease-out
+      transform skew(-2deg, 2.5deg)
+
+    &.in-view
+      > .blog-post-info
+        > h2
+          color white
+
+        &:after
+          top 0
+          border-color $grey6
+          opacity 0.5
+
+      &:before
+        top 0
+        left 0
+        opacity 1
+        transform none
+
+      &:hover
+        > .blog-post-info
+          &:after
+            top $unit
+            border-color $grey6
+            opacity 0.5
+
+  &-post-info
+    flex 1 1 $grid*6
+    margin-top $unit
+    position relative
+    z-index 1
+
+    &:after
+      content ''
+      border-bottom 2px solid $blue
+      width 100%
+      display block
+      position relative
+      top -72px
+      transition 0.6s ease
+
+    > h2
+      color $grey1
+
+    > p
+      color $grey6
+      line-height 1.5
+      margin-top $unit
+
+  &-post-image-wrapper
+    flex 0 0 $grid*6
+    margin-right $grid
+    z-index 1
+
+    > img
+      box-shadow 0 2px 4px rgba(30, 30, 38, 0.24)
+      max-width 100%
+
+  &-loop
+    margin-bottom $grid
+
+    a
+      display block
+      text-decoration none
+      margin 0 auto $unit*2 auto
+      max-width $grid*25
+
+      &:hover
+        filter none
+        transform none
+
+@media (max-width: 640px)
+  .blog
+    &-content
+      padding-left $grid
+      padding-right $grid
+
+@keyframes glitch-small
+  0%
+    transform translate(0)
+
+  12%
+    transform translate(2px, 1px)
+
+  20%
+    transform translate(-2px, -1px)
+
+  24%
+    transform translate(0)
+

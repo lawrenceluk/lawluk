@@ -1,0 +1,38 @@
+.post
+  &-header
+    padding $grid*3 $grid
+    position fixed
+    text-align center
+    top 0
+    width 100%
+
+    small
+      color $grey4
+
+  &-body
+    width 100%
+    position absolute
+    transform translateY($grid*8)
+    z-index 2
+
+  &-card
+    background-color white
+    margin 0 auto $grid*2 auto
+    max-width $grid*28
+    padding $grid $grid*2
+
+    img
+      margin-left $grid*-2
+      margin-right $grid*-2
+      max-width calc(100% + 128px)
+
+    blockquote
+      border-left 2px solid $grey5
+      color $grey3
+      padding-left $unit
+
+  &-foot
+    font-size $small-font-size
+    margin-bottom $unit*2
+    margin-right $unit*2
+    text-align right
