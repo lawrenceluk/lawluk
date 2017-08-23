@@ -9,12 +9,12 @@
     <div class='container center'>
       {{!-- The tag below includes the post loop - partials/loop.hbs --}}
       <div class="blog-loop">
-        {{#get "posts" include="image,title"}}
+        {{#get "posts"}}
           {{#foreach posts}}
             <a href={{url}}>
               <article class='blog-post'>
                 <div class='blog-post-image-wrapper'>
-                  <img src='{{image}}'/>
+                  <img src='{{img_url feature_image}}'/>
                 </div>
                 <div class='blog-post-info'>
                   <h2>{{title}}</h2>
