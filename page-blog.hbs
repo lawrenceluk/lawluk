@@ -1,9 +1,13 @@
 {{!< default}}
-<a href='/' class='home-icon'></a>
+<nav>
+  <a href='/'><figure></figure></a>
+  <a href='/' class='home'>Home</a>
+</nav>
+
 <main class="content page-blog" role="main">
   <section class='blog-header'>
-    <h1>Blog</h1>
-    <p>From the mind of Lawrence Luk</p>
+    <h1>"Blog"</h1>
+    <p>Mental meanderings</p>
   </section>
   <section class='blog-content'>
     <div class='container center'>
@@ -12,14 +16,13 @@
         {{#get "posts"}}
           {{#foreach posts}}
             <a href={{url}}>
-              <article class='blog-post'>
+              <article class='blog-post in-view'>
                 <div class='blog-post-image-wrapper'>
-                  <img src={{image}} />
-                  {{!-- <img src='{{img_url feature_image absolute="true"}}'/> --}}
+                  <img class='kg-image' src='{{img_url feature_image absolute="true"}}'/>
                 </div>
                 <div class='blog-post-info'>
                   <h2>{{title}}</h2>
-                  <p>{{excerpt characters='160'}}...</p>
+                  <p>{{excerpt}}...</p>
                 </div>
               </article>
             </a>

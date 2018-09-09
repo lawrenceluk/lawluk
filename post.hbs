@@ -1,19 +1,24 @@
 {{!< default}}
-<a href='/' class='home-icon'></a>
+<nav>
+  <a href='/'><figure></figure></a>
+  <a href='/' class='home'>Home</a>
+  <a href='/blog' class='home'>Blog</a>
+</nav>
 
 {{#post}}
 <main class="content page-post" role="main">
   <section class='post-header'>
     <h1>{{title}}</h1>
     <small>{{date updated_at format="MMMM DD, YYYY"}}</small>
+    <img src={{feature_image}} />
   </section>
   <section class='post-body'>
     <div class='post-card'>
       {{content}}
       <hr/>
-      <a href='/blog'>Back to blog</a>
+      <a href='/blog'>More posts</a>
     </div>
-    <div class='post-foot'>© Lawrence Luk 2017</div>
+    <div class='post-foot'>© Lawrence Luk</div>
   </section>
 </main>
 {{/post}}
