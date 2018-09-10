@@ -129,6 +129,7 @@ nav
   z-index 9
 
   figure
+    cursor pointer
     width $grid*3
     height $grid*3
     border-radius $grid*4
@@ -150,68 +151,14 @@ nav
     &:first-of-type:hover
       transform none
 
-.loading-wave-container
-  margin-top $grid
-  margin-bottom $grid*3
-  width 100%
-  height 100%
-  display flex
-  justify-content center
-  align-items center
-
-  $wave-size = 12px
-
-  .waves
-    transform-style preserve-3d
-    transform rotate3d(-0.2,0.5,0,12deg)
-
-  [class*="wave-"]
+@media (max-width: 1200px)
+  nav
     position relative
-    float right
-    width $wave-size
-    height $wave-size
-    margin 0 10px
-    transform-style preserve-3d
+    display flex
+    align-items center
 
-  for i in (0..11)
-    .wave-{i}
-      display block
-      animation waving 2.4s ease-in-out infinite
-      animation-delay 0.2s*i
+    > a
+      margin 0 $grid 0 0
 
-  .wave-face
-    position absolute
-    width $wave-size
-    height $wave-size
-    background-image linear-gradient(-240deg, #fedfe5, #d1f9ff)
-    transform-style preserve-3d
-    transform translateZ(0px)
-    &:before
-    &:after
-      position absolute
-      content ''
-      display block
-      transform-origin 50% 50% 50%
-    &:before
-      width 300px
-      height $wave-size
-      background-image linear-gradient(to left, #c2e3ea, #0C94F5, #6E3DF5)
-      transform translate3d(-150px,0,-150px) rotateY(90deg)
-    &:after
-      width $wave-size
-      height 300px
-      background-color yellow
-      background-image linear-gradient(to bottom, #fff, #d1f9ff, #779ade, #c2e3ea)
-      transform translate3d(0,-150px,-150px) rotateX(90deg);
-
-@keyframes waving
- 0%, 100%
-   transform translateY(0)
-
- 50%
-   transform translateY(45px)
-
-@media (max-width: 640px)
-  .home-icon
-    top $unit
-    left $unit
+      > figure
+        margin 0

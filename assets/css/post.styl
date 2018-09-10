@@ -57,7 +57,7 @@
     flex-direction column
     margin  auto
     max-width $post-width
-    width 100vw
+    width 100%
 
   &-gallery-row
     display flex
@@ -83,10 +83,16 @@
     &:last-of-type
       padding-right $unit*2
 
-
-
 figcaption
   color $grey2
   font-size $small-font-size
   margin $unit*2 0 $grid 0
   text-align center
+
+@media (max-width: 1200px)
+  .post-header
+    margin $grid*2 auto
+    padding 0 $grid
+
+  .post-body
+    padding 0 $grid
