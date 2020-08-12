@@ -1,26 +1,28 @@
 .landing
-  background-color $grey1
-  overflow hidden
-  height 100vh
-  display flex
-  justify-content center
-  align-items center
-
-  video
-    background linear-gradient(-229deg, $purple 22%, $blue 100%)
-    position fixed
-    top 50%
-    left 50%
-    min-width 100%
-    min-height 100%
-    width auto
-    height auto
-    z-index -100
-    transform translateX(-50%) translateY(-50%)
-    opacity 0.9
-
   &-callout
+    background radial-gradient(circle at 50%, #111, #111 60%, #F8F8F8 75%, #111 98%)
+    background-size 100%
+    box-shadow inset 0 6px 14px 6px rgba(0,0,0,.2)
+    display flex
+    flex-direction column
+    justify-content flex-start
+    align-items center
+    padding $grid*2 0
     color white
+    
+    > .video-wrapper
+      position absolute
+      top 0
+      left 0
+      overflow hidden
+      height $grid*10
+      width 100vw
+      
+      > video
+        position absolute
+        top -33%
+        left 0
+        width 100vw
 
     > h1
       font-size 96px
@@ -46,17 +48,6 @@
         z-index -1
         animation glitch-med .85s cubic-bezier(.25, .46, .45, .94) reverse both infinite
 
-    > .stripe
-      background-color rgba(0, 0, 0, 0.75)
-      display inline-block
-      height $grid*2
-      position absolute
-      width 100%
-      margin-left $grid*-1
-      margin-top -82px
-      z-index -1
-      animation landing-slide-in-stripe 1.8s ease both
-
     > p
       // background-color rgba(12, 148, 245, 0.75)
       margin 0
@@ -66,18 +57,105 @@
     a
       color white
       text-decoration underline
+      
+  &-timeline
+      padding $grid 0
+      
+      > .mobile-photo
+        width $grid*3
+        height $grid*3
+        border-radius $grid*3
+        background-color white
+        background-size cover
+        background-image url('https://s3-us-west-2.amazonaws.com/lawluk/images/pf.jpg')
+        box-shadow 0 2px 4px rgba(0, 0, 0, 0.4)
+        margin $grid auto
+        position relative
+        z-index 3
+        animation fade-in-down 1s ease both
+    
+      > .intro
+        margin 0 auto
+        max-width $grid*20
+      
+      > .walkthrough
+        margin $grid auto
+        max-width $grid*20
+        
+        > p
+          border-top 3px solid
+          border-image linear-gradient(to right, $purple 0%, $blue 100%)
+          border-image-slice 1
+          border-width 3px
+          margin 0
+          padding $grid*2
+          position relative
+          color $grey1
+          
+          > strong
+            display block
+            
+          > em
+            color $grey2
+            font-size $small-font-size
+            font-style italic
+            line-height 1.15em
+            display block
+          
+          &:before {
+            background-color: $grey1;
+            border-radius: 0;
+            color: white;
+            content: var(--y);
+            font-size: $small-font-size
+            font-weight 800
+            line-height: 1.25em;
+            padding: $unit
+            position: absolute;
+            top calc(50% - 4rem)
+            text-align: center;
+          }
+          
+          &:nth-child(even) {
+            border-right: 3px solid;
+                        
+            &:before {
+              left: 100%; 
+              margin-left: -20px;
+            }
+          }
+          //even number borders
+          &:nth-child(odd) {
+            border-left: 3px solid;
+            
+            &:before {
+              right: 100%; 
+              margin-right: -20px;
+            }
+          }
+          //handle first and last
+          &:first-child {
+            border-top: 0;
+            border-top-right-radius:0;
+            border-top-left-radius:0;
+          }
+          &:last-child {
+            border-bottom-right-radius:0;
+            border-bottom-left-radius:0;
+          }
 
   &-foot
     &-l
     &-r
-      color white
+      color $grey1
       display flex
       font-size $small-font-size
       font-weight 300
       padding $unit*2
-      position fixed
-      bottom 0
-      z-index 10
+      position absolute
+      // position fixed
+      // bottom 0
+      // z-index 10
 
     &-l
       left 0
@@ -88,15 +166,16 @@
   &-actions
     display flex
     justify-content space-between
-    width 100%
-    perspective 1000px
+    width $grid*20
+    padding-top $grid
+    perspective 1080px
 
   &-action
     color white
     flex 1
     display flex
     align-items center
-    padding-top $grid
+    justify-content center
     text-decoration none !important
     animation fade-in-left 1s ease backwards
 
@@ -116,8 +195,8 @@
         opacity 1
 
     > .icon
-      width $grid
-      height $grid
+      width $unit*2
+      height $unit*2
       background-size cover
       display inline-block
 
@@ -139,22 +218,28 @@
       transition 0.2s ease
       text-align center
 
-@media (max-width: 640px)
+@media (max-width: 800px)
   .landing
     align-items flex-start
     // background linear-gradient(-239deg, $purple 22%, $blue 100%)
     overflow auto
 
     &-callout
+      background linear-gradient(69deg, $grey1 61%, $grey2 100%)
       padding $grid
       z-index 3
+      
+      .video-wrapper
+        height $grid*20
+        
+        > video
+          width auto
+          height 100%
 
       > h1
-        font-size 48px
+        font-size 40px
         line-height 1
-
-      > .stripe
-        display none
+        margin-top $grid
 
       > p
         background-color transparent
@@ -163,19 +248,18 @@
 
         > span
           display block
-
-      > .mobile-photo
-        width $grid*4
-        height $grid*4
-        border-radius $grid*4
-        background-color white
-        background-size cover
-        background-image url('https://s3-us-west-2.amazonaws.com/lawluk/images/pf.jpg')
-        box-shadow 0 2px 4px rgba(0, 0, 0, 0.4)
-        margin 0 auto $grid auto
-        position relative
-        z-index 3
-        animation fade-in-down 1s ease both
+    
+    &-timeline
+      padding $grid
+      margin-top $grid*-3
+      
+      > main
+        > p
+          padding $grid $unit*2 !important
+          
+          &:before
+            content '' !important
+            display none
 
     &-actions
       flex-direction column
@@ -190,9 +274,6 @@
 
       > span
           opacity 1
-
-  video
-    display none
 
 @keyframes landing-slide-in-stripe
   from
